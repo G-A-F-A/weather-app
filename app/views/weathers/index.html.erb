@@ -1,0 +1,50 @@
+<script type="text/javascript">
+  var lat;
+  var lon;
+
+  if( navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(success, error);
+    function success(position) {
+      var data = position.coords;
+      lat = data.latitude;
+      lon = data.longitude;
+    }
+    function error(error) {
+      alert("位置情報を取得できません");
+    }
+  } else {
+    alert("あなたのブラウザでは位置情報が取得できません");
+  }
+
+  setInterval("ajaxGet()", 600000);
+  function ajaxGet()
+  {
+    var hostUrl= "<%= weathers_path %>";
+    $.ajax({
+      url: hostUrl,
+      type: 'GET',
+      dataType: 'html',
+      data: {
+        lat: lat,
+        lon: lon
+      },
+    }).done(function (data) {
+      console.log("ok");
+      $('#result').empty().append(data);
+    }).fail(function (data) {
+      console.log("error");
+    });
+  }
+</script>
+
+<h1>お天気情報</h1>
+<div id="result"><%= render partial: 'result' %></div>
+<%= simple_form_for :search, url: search_weathers_path, method: :get do |f| %>
+  <%= f.input :prefectures,
+              as: :select,
+              include_blank: false,
+              label: false,
+              selected: @result['name'].downcase,
+              collection: SearchForm::SEARCH_KEY %>
+  <%= f.button :submit %>
+<% end %>
