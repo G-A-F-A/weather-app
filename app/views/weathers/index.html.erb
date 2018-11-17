@@ -16,7 +16,7 @@
     alert("あなたのブラウザでは位置情報が取得できません");
   }
 
-  setInterval("ajaxGet()", 100000);
+  setInterval("ajaxGet()", 10000);
   function ajaxGet()
   {
     var hostUrl= "<%= weathers_path %>";
@@ -37,7 +37,7 @@
   }
 </script>
 
-<h1>お天気情報</h1>
+<h1>お天気情報&nbsp;<small><%= link_to 'お天気予報はこちら', forecasts_path %></small></h1>
 <div class='col-xs-4'>
   <div class='form row'>
     <%= simple_form_for :search, url: search_weathers_path, method: :get do |f| %>

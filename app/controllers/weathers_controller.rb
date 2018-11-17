@@ -22,7 +22,7 @@ class WeathersController < ApplicationController
     end
     @name = params[:lat].present? ? '現在地' : '渋谷'
     @result = JSON.parse(response.body)
-    binding.pry
+    # binding.pry
     render partial: 'result' if params[:lat].present?
   end
 
@@ -38,9 +38,6 @@ class WeathersController < ApplicationController
     name = SearchForm::SEARCH_KEY.select { |k| k.second == @result['name'].downcase }
     @name = name.shift.first
     render :index
-  end
-
-  def show
   end
 
   private

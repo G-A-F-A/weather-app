@@ -1,0 +1,13 @@
+<div class='result_header'>
+  <%= @name %>のお天気予報（<%= Time.now.strftime('%Y年%m月%d日 %H時%M分%S秒') %> 現在）
+</div>
+<div class='result_body'>
+  <% @result['list'].each do |result| %>
+    <p>
+      &emsp;日時: <%= result['dt_txt'].to_datetime.strftime('%m/%d %H:00') %>,
+      &emsp;天気: <%= result['weather'][0]['description'] %>,
+      &emsp;気温: <%= result['main']['temp'].to_s %>℃,
+      &emsp;湿度: <%= result['main']['humidity'].to_s %>％
+    </p>
+  <% end %>
+</div>

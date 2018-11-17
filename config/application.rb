@@ -35,5 +35,7 @@ module WeatherApp
       g.assets false
       g.helper false
     end
+    # Add lib's path
+    config.paths.add "lib", eager_load: true
   end
 end
