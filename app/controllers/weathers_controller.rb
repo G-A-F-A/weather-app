@@ -7,25 +7,30 @@ class WeathersController < ApplicationController
         req.url '/data/2.5/weather'
         req.params[:lat] = params[:lat].to_f
         req.params[:lon] = params[:lon].to_f
+        req.params[:units] = 'metric'
         req.params[:APPID] = Rails.application.credentials.openweathermap[:api_key]
         req.params[:lang] = 'ja'
       end
     else
       response = @conn.get do |req|
         req.url '/data/2.5/weather'
-        req.params[:q] = 'Shibuya,JP'
+        req.params[:q] = 'Shibuya,jp'
+        req.params[:units] = 'metric'
         req.params[:APPID] = Rails.application.credentials.openweathermap[:api_key]
         req.params[:lang] = 'ja'
       end
     end
+    @name = params[:lat].present? ? '現在地' : '渋谷'
     @result = JSON.parse(response.body)
+    binding.pry
     render partial: 'result' if params[:lat].present?
   end
 
   def search
     response = @conn.get do |req|
       req.url '/data/2.5/weather'
-      req.params[:q] = "#{params[:search][:prefectures]},JP"
+      req.params[:q] = "#{params[:search][:prefectures]},jp"
+      req.params[:units] = 'metric'
       req.params[:APPID] = Rails.application.credentials.openweathermap[:api_key]
       req.params[:lang] = 'ja'
     end
