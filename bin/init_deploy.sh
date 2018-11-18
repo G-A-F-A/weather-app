@@ -13,8 +13,6 @@ if [ $env = "production" ]; then
     exit 1
   fi
   echo ""
-  echo "== rails db:create db:migrate =="
-  RAILS_ENV=production bin/rails db:create db:migrate
   echo "== compile assets =="
   RAILS_ENV=production bin/rails assets:clobber
   RAILS_ENV=production bin/rails assets:precompile
@@ -39,8 +37,6 @@ if [ $env = "staging" ]; then
     exit 1
   fi
   echo ""
-  echo "== rails db:create db:migrate =="
-  RAILS_ENV=staging bin/rails db:create db:migrate
   echo "== compile assets =="
   RAILS_ENV=staging bin/rails assets:clobber
   RAILS_ENV=staging bin/rails assets:precompile

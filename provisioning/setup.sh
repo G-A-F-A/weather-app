@@ -42,6 +42,7 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 source ~/.bash_profile
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 rbenv rehash
+export RUBY_CONFIGURE_OPTS=--disable-install-doc
 rbenv install -v 2.5.1
 rbenv global 2.5.1
 rbenv rehash
