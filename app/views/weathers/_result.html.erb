@@ -2,9 +2,9 @@
   <%= @name %>のお天気（<%= Time.now.strftime('%Y年%m月%d日 %H時%M分%S秒') %> 現在）
 </div>
 <div class='result_body'>
-  <p>天気：<%= @result['weather'][0]['description'] %></p>
-  <p>気温：<%= @result['main']['temp'].to_s %>℃</p>
-  <p>湿度：<%= @result['main']['humidity'].to_s %>％</p>
-  <p>日の出：<%= Time.at(@result['sys']['sunrise']).strftime('%H時%M分%S秒') %></p>
-  <p>日の入：<%= Time.at(@result['sys']['sunset']).strftime('%H時%M分%S秒') %></p>
+  <p>&emsp;天気：<%= @result['weather'][0]['description'] %></p>
+  <p>&emsp;気温：<%= @result['main']['temp'].to_s %>℃</p>
+  <p>&emsp;湿度：<%= @result['main']['humidity'].to_s %>％</p>
+  <p>&emsp;日の出：<%= Time.at(@result['sys']['sunrise']).strftime('%H時%M分%S秒') %></p>
+  <p>&emsp;日の入：<%= Time.at(@result['sys']['sunset']).strftime('%H時%M分%S秒') %></p>
 </div>
