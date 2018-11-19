@@ -15,9 +15,8 @@ port        ENV.fetch("PORT") { 3000 }
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 
-if Rails.env.production?
-  daemonize true
-end
+daemonize   true
+
 pidfile     "#{Dir.pwd}/tmp/pids/puma.pid"
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
