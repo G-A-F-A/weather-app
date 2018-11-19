@@ -9,6 +9,6 @@ class SearchForm
     ['大津', 'otsu'], ['京都', 'kyoto'], ['大阪', 'osaka'], ['神戸', 'kobe'], ['奈良', 'nara'], ['和歌山', 'wakayama'],
     ['鳥取', 'tottori'], ['松江', 'matsue'], ['岡山', 'okayama'], ['広島', 'hiroshima'], ['山口', 'yamaguchi'], ['徳島', 'tokushima'],
     ['高松', 'takamatsu'], ['松山', 'matsuyama'], ['高知', 'kochi'], ['福岡', 'fukuoka'], ['佐賀', 'saga'], ['長崎', 'nagasaki'],
-    ['熊本', 'kumamoto'], ['大分', 'oita'], ['宮崎', 'miyazaki'], ['鹿児島', 'kagoshima'], ['那覇', 'naha']
+    ['熊本', 'kumamoto'], ['大分', 'oita'], ['宮崎', 'miyazaki'], ['鹿児島', 'kagoshima'], ['那覇', 'okinawa']
   ].freeze
 end
