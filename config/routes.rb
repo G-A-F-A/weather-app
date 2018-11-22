@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :weathers, only: %i[index] do
+    get 'search', on: :collection
+  end
+  resources :forecasts, only: %i[index] do
+    get 'search', on: :collection
+  end
+  root to: 'weathers#index'
 end

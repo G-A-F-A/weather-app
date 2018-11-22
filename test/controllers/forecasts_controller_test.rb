@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BookmarkTest < ActiveSupport::TestCase
+class ForecastsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

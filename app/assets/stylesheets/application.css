@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'bootstrap/dist/css/bootstrap.min.css';
+
+.result_header {
+  color: tomato;
+  font-size: 24px;
+  padding: 0 0 10px;
+}
+
+.result_body p {
+  font-weight: bold;
+  font-size: 16px;
+}
